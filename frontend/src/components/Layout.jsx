@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Search, Menu, Info } from "lucide-react";
+import { Search, Menu, Info, Github, Heart, Loader2 } from "lucide-react";
 import Sidebar from "./Sidebar";
 import { searchArtists, getTagSuggestions } from "../utils/api";
 
@@ -299,16 +299,16 @@ function Layout({ children, appVersion }) {
             <div className="flex items-start gap-3">
               <Info className="w-5 h-5 mt-0.5 text-amber-700 dark:text-amber-300" />
               <div className="text-sm">
-                <span className="font-semibold">Upcoming transition:</span> The new test branch will merge into main in the coming weeks. Please migrate to its docker-compose or pin your current deployment to a specific image tag instead of latest.
+                <span className="font-semibold">Test branch merged:</span> The test branch has been merged into main. Please remove the :test modifier from your deployment, as this branch will be removed soon.
               </div>
             </div>
             <a
-              href="https://github.com/lklynet/aurral/tree/test"
+              href="https://github.com/lklynet/aurral"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-medium text-amber-800 hover:text-amber-900 dark:text-amber-200 dark:hover:text-amber-100 whitespace-nowrap"
             >
-              View test branch
+              View main branch
             </a>
           </div>
         </div>
