@@ -1,6 +1,10 @@
 {
   "name": "aurral",
+<<<<<<< HEAD
   "version": "1.37.0-test.3",
+=======
+  "version": "1.36.3",
+>>>>>>> 3ad32f3 (chore(release): 1.36.3)
   "description": "Aurral artist request manager",
   "main": "server.js",
   "type": "module",
