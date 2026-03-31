@@ -243,6 +243,15 @@ export const dbOps = {
         ? "mp3"
         : "flac";
     const preferredFormatStrict = weeklyFlowWorker?.preferredFormatStrict === true;
+    const parsedRetryCycleMinutes = Number(weeklyFlowWorker?.retryCycleMinutes);
+    const retryCycleMinutes =
+      Number.isFinite(parsedRetryCycleMinutes) &&
+      [15, 30, 60, 360, 720, 1440].includes(
+        Math.floor(parsedRetryCycleMinutes)
+      )
+        ? Math.floor(parsedRetryCycleMinutes)
+        : 15;
+    const seedDownloads = weeklyFlowWorker?.seedDownloads !== false;
 
     const defaultFlowPlaylists = {
       discover: { enabled: false, nextRunAt: null },
@@ -274,6 +283,8 @@ export const dbOps = {
         concurrency,
         preferredFormat,
         preferredFormatStrict,
+        retryCycleMinutes,
+        seedDownloads,
       },
       onboardingComplete: !!onboardingComplete,
     };
